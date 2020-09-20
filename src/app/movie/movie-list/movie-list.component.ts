@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Subscription } from 'rxjs';
+import { ActivatedRoute, Params } from '@angular/router';
 
 import { environment } from './../../../environments/environment';
 import { Movie } from '../movie.model';
 import { MovieService } from '../movie.service';
-import { ActivatedRoute, Params } from '@angular/router';
 
 
 @Component({
