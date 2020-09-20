@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+
+import { MovieService } from '../movie/movie.service';
 
 @Component({
   selector: 'app-header',
@@ -7,9 +10,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  searchText = '';
+
+  constructor(private movieService: MovieService, private router: Router) { }
 
   ngOnInit(): void {
+  }
+
+  onSubmit(): void {
+    this.router.navigate(['movies'], { queryParams: { search: this.searchText } });
   }
 
 }

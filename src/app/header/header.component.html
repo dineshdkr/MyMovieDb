@@ -2,7 +2,7 @@
     <div class="container">
 
         <!-- Logo -->
-        <a class="c-p">
+        <a class="c-p" href="#">
             <strong class="logo">MovieDB</strong>
         </a>
 
@@ -15,12 +15,12 @@
             </ul>
 
             <!-- Right -->
-            <form class="form-inline">
+            <div class="form-inline">
                 <div class="md-form my-0">
-                    <input class="form-control mr-sm-2" type="text" placeholder="Enter a TV Show or Movie" aria-label="Search">
+                    <input [(ngModel)]="searchText" class="form-control mr-sm-2" type="text" placeholder="Enter a TV Show or Movie" aria-label="Search">
                 </div>
-                <button type="button" class="search-btn" name="button">Search</button>
-            </form>
+                <button type="button" class="search-btn" name="button" (click)="onSubmit()" [disabled]="searchText === ''">Search</button>
+            </div>
         </div>
 
     </div>

@@ -1,0 +1,42 @@
+<!--Main layout-->
+<main class="mt-5 pt-4">
+    <div class="container dark-grey-text mt-5">
+        <!--Grid row-->
+        <div class="row wow fadeIn">
+            <!--Grid column-->
+            <div class="col-md-6 mb-4">
+                <img [src]="imageBasePath" class="img-fluid" alt="Movie Poster">
+            </div>
+            <!--Grid column-->
+
+            <!--Grid column-->
+            <div class="col-md-6 mb-4">
+                <!--Content-->
+                <div class="p-4">
+
+                    <p class="lead">
+                        {{ movie.title }}
+                    </p>
+
+                    <p class="lead font-weight-bold">Overview</p>
+
+                    <p>{{ movie.overview }}</p>
+
+                    <p class="lead font-weight-bold">Total Votes</p>
+
+                    <p>{{ movie.vote_count }}</p>
+
+                    <p class="lead font-weight-bold">Average rating</p>
+
+                    <p>{{ movie.vote_average }}</p>
+                </div>
+                <!--Content-->
+            </div>
+            <!--Grid column-->
+        </div>
+        <!--Grid row-->
+        <hr>
+
+    </div>
+</main>
+<!--Main layout-->
