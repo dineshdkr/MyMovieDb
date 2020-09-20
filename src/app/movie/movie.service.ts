@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { Subject, throwError } from 'rxjs';
-import { tap, catchError } from 'rxjs/operators';
+import { throwError } from 'rxjs';
+import { catchError } from 'rxjs/operators';
 
 import { environment } from './../../environments/environment';
 import { Movie } from './movie.model';
