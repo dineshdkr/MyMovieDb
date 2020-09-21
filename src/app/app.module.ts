@@ -9,13 +9,15 @@ import { HeaderComponent } from './header/header.component';
 import { MovieListComponent } from './movie/movie-list/movie-list.component';
 import { MovieDetailComponent } from './movie/movie-detail/movie-detail.component';
 import { MovieService } from './movie/movie.service';
+import { RatedMoviesComponent } from './movie/rated-movies/rated-movies.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     MovieListComponent,
-    MovieDetailComponent
+    MovieDetailComponent,
+    RatedMoviesComponent
   ],
   imports: [
     BrowserModule,

@@ -19,4 +19,8 @@ export class HeaderComponent implements OnInit {
     this.router.navigate(['movies'], { queryParams: { search: this.searchText } });
   }
 
+  onViewRated(): void {
+    this.router.navigate(['ratedMovies']);
+  }
+
 }

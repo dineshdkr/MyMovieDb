@@ -1,0 +1,48 @@
+<section class="text-center mb-4" style="position: relative; top: 60px;">
+
+    <!--Grid row-->
+    <div class="row wow fadeIn">
+
+        <!--Grid column-->
+        <div class="col-lg-3 col-md-6 mb-4" *ngFor="let movie of ratedMovies">
+
+            <!--Card-->
+            <div class="card">
+
+                <!--Card image-->
+                <a class="view overlay">
+                    <img [src]="imageBasePath + movie.poster_path" class="card-img-top" alt="Movie Poster">
+                    <a>
+                      <div class="mask rgba-white-slight"></div>
+                    </a>
+                </a>
+                <!--Card image-->
+
+                <!--Card content-->
+                <div class="card-body text-center">
+                    <!--Category & Title-->
+                    <h2>
+                      <strong>
+                        <div class="dark-grey-text">{{ movie.title }}</div>
+                      </strong>
+                    </h2>
+                    <div class="grey-text">
+                        <h5> Your Rating: {{ movie.rating }} Star(s)</h5>
+                    </div>
+
+                    <p class="font-weight-bold blue-text">
+                      Average Rating: {{ movie.vote_average}} Star(s)
+                    </p>
+
+                </div>
+                <!--Card content-->
+
+            </div>
+            <!--Card-->
+
+        </div>
+        <!--Grid column-->
+
+    </div>
+    <!--Grid row-->
+</section>

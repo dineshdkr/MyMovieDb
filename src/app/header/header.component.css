@@ -26,3 +26,8 @@ header,
 a:hover {
     text-decoration: none;
 }
+
+.view-rated {
+    position: relative;
+    left: 27px;
+}

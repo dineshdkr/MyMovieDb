@@ -5,6 +5,7 @@ import { catchError } from 'rxjs/operators';
 
 import { environment } from './../../environments/environment';
 import { Movie } from './movie.model';
+import { RatedMovies } from './rated-movie.model';
 
 
 export interface Session {
@@ -45,6 +46,13 @@ export class MovieService {
     const api = environment.API_BASE_URL + '3/movie/' + movieId + '/rating?api_key=' + environment.API_KEY + '&guest_session_id=' + sessionId;
     return this.http
       .post<{success: boolean, status_message: string}>(api, {value: rating})
+      .pipe(catchError((this.errorHandler)));
+  }
+
+  getRatedMovies(sessionId: string) {
+    const api = environment.API_BASE_URL + '3/guest_session/' + sessionId + '/rated/movies?api_key=' + environment.API_KEY;
+    return this.http
+      .get<{results: RatedMovies[]}>(api)
       .pipe(catchError((this.errorHandler)));
   }
 
