@@ -1,4 +1,8 @@
-<section class="text-center mb-4" style="position: relative; top: 60px;">
+<div *ngIf='isLoading'>
+    <app-loading-spinner></app-loading-spinner>
+</div>
+
+<section class="text-center mb-4" *ngIf='!isLoading' style="position: relative; top: 60px;">
 
     <!--Grid row-->
     <div class="row wow fadeIn">

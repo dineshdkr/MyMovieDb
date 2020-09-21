@@ -17,6 +17,8 @@ export class MovieDetailComponent implements OnInit {
   movie: Movie;
   id: string;
 
+  isLoading = false;
+
   rated = false;
 
   guestSessionId = '';
@@ -48,15 +50,21 @@ export class MovieDetailComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.isLoading = true;
     this.route.params.subscribe(
       (params: Params) => {
         this.id = params.id;
         this.movieService.getMovie(this.id)
           .subscribe(
             data => {
+              this.isLoading = false;
               this.movie = data;
               this.imageBasePath += data.poster_path;
               console.log(this.movie);
+            },
+            error => {
+              this.isLoading = false;
+              console.log(error);
             }
           );
       }

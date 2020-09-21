@@ -10,6 +10,7 @@ import { MovieListComponent } from './movie/movie-list/movie-list.component';
 import { MovieDetailComponent } from './movie/movie-detail/movie-detail.component';
 import { MovieService } from './movie/movie.service';
 import { RatedMoviesComponent } from './movie/rated-movies/rated-movies.component';
+import { LoadingSpinnerComponent } from './loading-spinner/loading-spinner.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { RatedMoviesComponent } from './movie/rated-movies/rated-movies.componen
     HeaderComponent,
     MovieListComponent,
     MovieDetailComponent,
-    RatedMoviesComponent
+    RatedMoviesComponent,
+    LoadingSpinnerComponent
   ],
   imports: [
     BrowserModule,

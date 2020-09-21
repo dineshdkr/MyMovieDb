@@ -12,6 +12,7 @@ import { MovieService } from '../movie.service';
 export class RatedMoviesComponent implements OnInit {
 
   ratedMovies: RatedMovies[];
+  isLoading = false;
   imageBasePath = environment.FILE_PATH;
 
   constructor(private movieService: MovieService) { }
@@ -23,13 +24,16 @@ export class RatedMoviesComponent implements OnInit {
       return;
     }
     const sessionId = session.guest_session_id;
+    this.isLoading = true;
     this.movieService.getRatedMovies(sessionId)
       .subscribe(
         data => {
+          this.isLoading = false;
           this.ratedMovies = data.results;
           console.log(this.ratedMovies);
         },
         error => {
+          this.isLoading = false;
           console.log(error);
         }
       );
