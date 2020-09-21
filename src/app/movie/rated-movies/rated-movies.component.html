@@ -1,7 +1,15 @@
 <div *ngIf='isLoading'>
     <app-loading-spinner></app-loading-spinner>
 </div>
-
+<div *ngIf='error'>
+    <div class="backdrop" (click)="onClose()"> </div>
+    <div class="alert-box">
+        <p class="_error-msg"> {{ error }} </p>
+        <div class="alert-box-actions">
+            <div class="btn btn-primary" (click)="onClose()">Close</div>
+        </div>
+    </div>
+</div>
 <section class="text-center mb-4" *ngIf='!isLoading' style="position: relative; top: 60px;">
 
     <!--Grid row-->
@@ -17,7 +25,7 @@
                 <a class="view overlay">
                     <img [src]="imageBasePath + movie.poster_path" class="card-img-top" alt="Movie Poster">
                     <a>
-                      <div class="mask rgba-white-slight"></div>
+                        <div class="mask rgba-white-slight"></div>
                     </a>
                 </a>
                 <!--Card image-->
@@ -26,7 +34,7 @@
                 <div class="card-body text-center">
                     <!--Category & Title-->
                     <h2>
-                      <strong>
+                        <strong>
                         <div class="dark-grey-text">{{ movie.title }}</div>
                       </strong>
                     </h2>
@@ -35,7 +43,7 @@
                     </div>
 
                     <p class="font-weight-bold blue-text">
-                      Average Rating: {{ movie.vote_average}} Star(s)
+                        Average Rating: {{ movie.vote_average}} Star(s)
                     </p>
 
                 </div>

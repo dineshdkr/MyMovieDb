@@ -36,11 +36,11 @@ export class MovieListComponent implements OnInit {
               this.movies = data.results;
             },
             error => {
-              this.isLoading = false;
               console.log(error);
             }
           );
         }
+        this.isLoading = false;
       }
     );
   }

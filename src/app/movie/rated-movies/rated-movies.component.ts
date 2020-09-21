@@ -14,13 +14,13 @@ export class RatedMoviesComponent implements OnInit {
   ratedMovies: RatedMovies[];
   isLoading = false;
   imageBasePath = environment.FILE_PATH;
-
+  error: string;
   constructor(private movieService: MovieService) { }
 
   ngOnInit(): void {
     const session = JSON.parse(localStorage.getItem('guestSession'));
     if (!session) {
-      alert('You have not rated any movies yet');
+      this.error = 'You have not rated any movies yet';
       return;
     }
     const sessionId = session.guest_session_id;
@@ -34,8 +34,11 @@ export class RatedMoviesComponent implements OnInit {
         },
         error => {
           this.isLoading = false;
-          console.log(error);
+          this.error = error;
         }
       );
+  }
+  onClose(): void {
+    this.error = '';
   }
 }
