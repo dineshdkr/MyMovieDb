@@ -16,7 +16,7 @@ export interface Session {
 @Injectable()
 export class MovieService {
 
-  movieListApi = `${environment.API_BASE_URL}3/search/movie?api_key=${environment.API_KEY}&query=`;
+  movieListApi = `${environment.API_BASE_URL}3/search/movie?query=`;
 
   movieDetailApi = `${environment.API_BASE_URL}3/movie/`;
 
@@ -32,25 +32,25 @@ export class MovieService {
 
   getMovie(id: string) {
     return this.http
-    .get<Movie>(this.movieDetailApi + id + '?api_key=' + environment.API_KEY)
+    .get<Movie>(this.movieDetailApi + id)
     .pipe(catchError((this.errorHandler)));
   }
 
   createSession() {
     return this.http
-      .get<Session>(environment.API_BASE_URL + '3/authentication/guest_session/new?api_key=' + environment.API_KEY)
+      .get<Session>(environment.API_BASE_URL + '3/authentication/guest_session/new')
       .pipe(catchError(this.errorHandler));
   }
 
   rateMovie(sessionId: string, movieId: number, rating: number) {
-    const api = environment.API_BASE_URL + '3/movie/' + movieId + '/rating?api_key=' + environment.API_KEY + '&guest_session_id=' + sessionId;
+    const api = environment.API_BASE_URL + '3/movie/' + movieId + '/rating?guest_session_id=' + sessionId;
     return this.http
       .post<{success: boolean, status_message: string}>(api, {value: rating})
       .pipe(catchError((this.errorHandler)));
   }
 
   getRatedMovies(sessionId: string) {
-    const api = environment.API_BASE_URL + '3/guest_session/' + sessionId + '/rated/movies?api_key=' + environment.API_KEY;
+    const api = environment.API_BASE_URL + '3/guest_session/' + sessionId + '/rated/movies';
     return this.http
       .get<{results: RatedMovies[]}>(api)
       .pipe(catchError((this.errorHandler)));
