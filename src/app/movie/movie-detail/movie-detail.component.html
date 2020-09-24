@@ -30,8 +30,12 @@
                     <p>{{ movie.vote_count }}</p>
 
                     <p class="lead font-weight-bold">Average rating</p>
-
                     <p>{{ movie.vote_average }}</p>
+
+                    <p class="lead font-weight-bold">Casting</p>
+
+                    <p *ngFor="let cast of casting.slice(0, 3);"> <a routerLink="/casting/{{cast.cast_id}}">{{ cast.character }} </a> </p>
+
                     <p class="lead font-weight-bold">Rate</p>
                     <fieldset class="rating">
                         <input type="radio" id="star10" name="rating" value="10" [(ngModel)]="star10" (change)="getRating($event)" /><label class="full" for="star10"></label>
@@ -59,6 +63,8 @@
                 <div *ngIf="rated" class="alert alert-success alert-dismissible alert-pos">
                     <button (click)="closeAlert()" type="button" class="close" data-dismiss="alert">&times;</button> Movie has been rated
                 </div>
+
+
                 <!--Content-->
             </div>
             <!--Grid column-->

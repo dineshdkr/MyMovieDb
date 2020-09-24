@@ -7,4 +7,5 @@ export interface Movie {
   original_title: string;
   vote_average: number;
   overview: string;
+  character ?: string | null;
 }

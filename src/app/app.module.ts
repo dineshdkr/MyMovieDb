@@ -12,6 +12,7 @@ import { MovieService } from './movie/movie.service';
 import { RatedMoviesComponent } from './movie/rated-movies/rated-movies.component';
 import { LoadingSpinnerComponent } from './loading-spinner/loading-spinner.component';
 import { AuthInterceptorService } from './movie/auth-interceptor.service';
+import { MovieCastingComponent } from './movie/movie-casting/movie-casting.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { AuthInterceptorService } from './movie/auth-interceptor.service';
     MovieListComponent,
     MovieDetailComponent,
     RatedMoviesComponent,
-    LoadingSpinnerComponent
+    LoadingSpinnerComponent,
+    MovieCastingComponent
   ],
   imports: [
     BrowserModule,

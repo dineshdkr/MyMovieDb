@@ -4,6 +4,7 @@ import { ActivatedRoute, Params } from '@angular/router';
 import { environment } from './../../../environments/environment';
 import { Movie } from '../movie.model';
 import { MovieService } from '../movie.service';
+import { Casting } from '../cating.models';
 
 
 @Component({
@@ -44,6 +45,8 @@ export class MovieDetailComponent implements OnInit {
   star1 = 'star1';
   starhalf = 'starhalf';
 
+  casting: Casting[];
+
   constructor(
     private route: ActivatedRoute,
     private movieService: MovieService,
@@ -60,7 +63,14 @@ export class MovieDetailComponent implements OnInit {
               this.isLoading = false;
               this.movie = data;
               this.imageBasePath += data.poster_path;
-              console.log(this.movie);
+              this.movieService.getCasting(params.id)
+                .subscribe(
+                  castData => {
+                    console.log(castData);
+                    this.casting = castData.cast;
+                  }
+                );
+
             },
             error => {
               this.isLoading = false;

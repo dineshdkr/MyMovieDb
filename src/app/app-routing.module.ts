@@ -4,6 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { MovieListComponent } from './movie/movie-list/movie-list.component';
 import { MovieDetailComponent } from './movie/movie-detail/movie-detail.component';
 import { RatedMoviesComponent } from './movie/rated-movies/rated-movies.component';
+import { MovieCastingComponent } from './movie/movie-casting/movie-casting.component';
 
 const routes: Routes = [
   {
@@ -17,6 +18,10 @@ const routes: Routes = [
   {
     path: 'ratedMovies',
     component: RatedMoviesComponent
+  },
+  {
+    path: 'casting/:id',
+    component: MovieCastingComponent
   },
   { path: '**', redirectTo: '' }, // Wildcard routing
 ];
