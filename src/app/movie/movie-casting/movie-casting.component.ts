@@ -17,10 +17,11 @@ export class MovieCastingComponent implements OnInit {
   imageBasePath = environment.FILE_PATH;
 
   id: number;
-
+  isLoading = false;
   constructor(private movieService: MovieService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.isLoading = true;
     this.route.params.subscribe(
       (params: Params) => {
         console.log(params);
@@ -28,12 +29,13 @@ export class MovieCastingComponent implements OnInit {
         this.movieService.getCastedFilms(this.id)
           .subscribe(
             data => {
+              this.isLoading = false;
               this.casts = data.cast;
               console.log(data.cast);
             }
-          )
+          );
       }
-    )
+    );
   }
 }
 
